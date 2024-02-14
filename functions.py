@@ -35,3 +35,11 @@ async def send_rat_pic(message):
         if custom_reason:
             await message.channel.send(f"Custom Reason: {custom_reason}")
             print(f"Custom Reason: {custom_reason}")
+
+    # Rand num between 01 and 09
+    random_number = random.choice(range(1, num_rat_pics + 1))
+    print(random_number)
+    if random_number < 10:
+        random_number = str(random_number).zfill(2)
+
+
