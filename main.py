@@ -15,7 +15,8 @@ intents.message_content = True
 bot = discord.Client(intents=intents)
 
 # Number of rat pics available
-num_rat_pics =  get_num_rat_pics()
+num_rat_pics = get_num_rat_pics()
+
 
 @bot.event
 async def on_ready():
