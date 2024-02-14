@@ -34,7 +34,7 @@ async def on_message(message):
         if num_rat_pics == 0:
             await message.channel.send("I don't have any Rat Pics :(")
         await send_rat_pic(message, num_rat_pics)
-        
+
     if message.content.startswith("!ratfact"):
         await send_rat_fact(message)
 
