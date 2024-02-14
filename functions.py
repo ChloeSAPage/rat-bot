@@ -54,5 +54,5 @@ async def send_rat_fact(message):
 
     if response.status_code == 200:
         rat_facts = response.json()
-        random_number = random.randint(1, len(rat_facts)- 1)
+        random_number = random.randint(1, len(rat_facts) - 1)
         await message.channel.send(rat_facts[f"{random_number}"])
