@@ -37,7 +37,6 @@ async def send_rat_pic(message, num_rat_pics):
         image_data = response.content
         picture = discord.File(io.BytesIO(image_data), filename=f"rat_{random_number}.jpg")
         await message.channel.send(file=picture)
-        print("Rat image saved successfully.")
     
     else:
         print(f"Failed to retrieve rat image: {response.status_code} {response.reason}")
