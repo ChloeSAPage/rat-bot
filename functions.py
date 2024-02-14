@@ -15,7 +15,7 @@ def get_num_rat_pics():
     else:
         # await message.channel.send(f"Failed to retrieve rat image: {response.status_code} {response.reason}")
         print(f"Failed to retrieve rat image: {
-                response.status_code} {response.reason}")
+            response.status_code} {response.reason}")
         custom_reason = response.headers.get("Description")
         if custom_reason:
             # await message.channel.send(f"Custom Reason: {custom_reason}")
@@ -37,12 +37,22 @@ async def send_rat_pic(message, num_rat_pics):
     if response.status_code == 200:
         image_data = response.content
         picture = discord.File(io.BytesIO(image_data),
-                                filename=f"rat_{random_number}.jpg")
+                               filename=f"rat_{random_number}.jpg")
         await message.channel.send(file=picture)
 
     else:
         print(f"Failed to retrieve rat image: {
-                response.status_code} {response.reason}")
+            response.status_code} {response.reason}")
         custom_reason = response.headers.get("Description")
         if custom_reason:
             print(f"Custom Reason: {custom_reason}")
+
+
+async def send_rat_fact(message):
+    '''Get rat fact from API'''
+    response = requests.get(f"http://localhost:5000/get-rat-facts")
+
+    if response.status_code == 200:
+        rat_facts = response.json()
+        random_number = random.randint(1, len(rat_facts)- 1)
+        await message.channel.send(rat_facts[f"{random_number}"])
