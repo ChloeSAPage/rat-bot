@@ -1,7 +1,7 @@
 import discord
 from dotenv import load_dotenv
 import os
-from functions import send_rat_pic
+from functions import send_rat_pic, get_num_rat_pics
 
 # Load Token
 load_dotenv()
@@ -14,6 +14,8 @@ intents.message_content = True
 # Bot
 bot = discord.Client(intents=intents)
 
+# Number of rat pics available
+num_rat_pics =  get_num_rat_pics()
 
 @bot.event
 async def on_ready():
@@ -28,7 +30,9 @@ async def on_message(message):
 
     # Responds to messages starting with '!'
     if message.content.startswith("!ratpic"):
-        await send_rat_pic(message)
+        if num_rat_pics == 0:
+            await message.channel.send("I don't have any Rat Pics :(")
+        await send_rat_pic(message, num_rat_pics)
 
 
 bot.run(TOKEN)
