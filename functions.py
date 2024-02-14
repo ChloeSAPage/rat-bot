@@ -3,10 +3,9 @@ import discord
 import random
 import io
 
-# Request how many rat pics are available
 
 def get_num_rat_pics():
-    # Get amount of rat pics available
+    '''Get amount of rat pics available from Rat API'''
     response = requests.get("http://localhost:5000/get-pic-amount")
     
     # Check response code
@@ -24,8 +23,9 @@ def get_num_rat_pics():
 
 
 async def send_rat_pic(message, num_rat_pics):
+    '''Send Rat Pic in Discord'''
     num_rat_pics = int(num_rat_pics)
-    # Rand num between 01 and 09
+    # Get random number and format to 2 digits e.g. 02
     random_number = random.choice(range(1, num_rat_pics + 1))
     if random_number < 10:
         random_number = str(random_number).zfill(2)
