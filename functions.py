@@ -49,7 +49,7 @@ async def send_rat_pic(message, num_rat_pics):
 
 
 async def send_rat_fact(message):
-    '''Get rat fact from API'''
+    '''Get rat fact from Rat API'''
     response = requests.get(f"http://localhost:5000/get-rat-facts")
 
     if response.status_code == 200:
