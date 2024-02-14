@@ -42,4 +42,18 @@ async def send_rat_pic(message):
     if random_number < 10:
         random_number = str(random_number).zfill(2)
 
-
+    # Get Rat pic from API
+    
+    response = requests.get(f"http://localhost:5000/get-rat/{random_number}")
+    
+    if response.status_code == 200:
+        image_data = response.content
+        picture = discord.File(io.BytesIO(image_data), filename=f"rat_{random_number}.jpg")
+        await message.channel.send(file=picture)
+        print("Rat image saved successfully.")
+    
+    else:
+        print(f"Failed to retrieve rat image: {response.status_code} {response.reason}")
+        custom_reason = response.headers.get("Description")
+        if custom_reason:
+            print(f"Custom Reason: {custom_reason}")
