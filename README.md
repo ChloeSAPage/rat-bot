@@ -45,10 +45,12 @@ When the bot successfully runs the following statement will be printed to the co
 ### 1. !ratpic
  Rat bot will send a random picture of a Rat. Rat images are given via [Rat API](https://github.com/ChloeSAPage/Rat-API.git).
 
- If this command fails then the following message will be send by Rat Bot `I don't have any Rat Pics :(`
+ If this command fails then the following message will be send by Rat Bot: `I don't have any Rat Pics :(`
 
 
 ### 2. !ratfact
 
 Rat Bot will send a random fact about rats!
 Rat Facts are given via [Rat API](https://github.com/ChloeSAPage/Rat-API.git).
+
+## More features to come!
