@@ -3,7 +3,7 @@
 ## Overview
 
 This bot brings the cuteness of Rats straight to your server! Providing cute rat images and rat facts! It provides multiple commands. Currently, this bot can only be run locally. 
-
+This bot uses Rat-API, repo can be found [here](https://github.com/ChloeSAPage/Rat-API.git)
 
 ## Installation
 
